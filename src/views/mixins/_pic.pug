@@ -1,0 +1,5 @@
+// div background picture
+
+mixin pic(name)
+    - var style = 'background-image:url("assets/img/'+name+'")'
+    .pic(style=style, class=attributes.class ? attributes.class : null)

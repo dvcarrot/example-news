@@ -3,7 +3,7 @@ var $ = require('gulp-load-plugins')();
 var server = require('browser-sync');
 
 gulp.task('build:scripts', function () {
-    return gulp.src('src/scripts/*')
+    return gulp.src('src/scripts/**/*')
         .pipe($.concat('site.js'))
         .pipe(gulp.dest('dist/scripts'))
         .pipe(server.reload({stream: true}))

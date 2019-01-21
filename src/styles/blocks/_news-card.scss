@@ -7,6 +7,7 @@
 .news-card {
   $self: '.news-card';
   transition: transform 0.3s;
+  cursor: pointer;
 
   &__picture {
     position: relative;
@@ -24,15 +25,20 @@
     object-fit: cover;
   }
 
-  #{$self}__icon {
-    transition: fill 0.3s;
-    fill: #717171;
+  &__icon {
+    position: relative;
+    transition: color 0.3s;
+    color: #717171;
+    margin-left: 1px;
+    margin-right: 13px;
+    float: left;
   }
 
   &__type {
     color: #b2544f;
     font-size: 16px;
     line-height: 18px;
+    letter-spacing: -0.35px;
     font-family: $extra-font-family;
     font-weight: 700;
     margin-top: 17px;
@@ -70,7 +76,7 @@
 
   &:hover {
     #{$self}__icon {
-      fill: #676666;
+      color: #b2544f;
     }
 
     #{$self}__name {

@@ -1,0 +1,6 @@
+// icon
+
+mixin icon(name)
+    - var className = attributes.class ? attributes.class : null
+    - className += ' icon-' + name
+    i(class=className)

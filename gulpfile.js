@@ -26,7 +26,13 @@ gulp.task('build:assets', function () {
         .pipe(gulp.dest('dist/assets'))
 });
 
-gulp.task('build', gulp.parallel('build:scripts', 'build:styles', 'build:views', 'build:assets'));
+gulp.task('build:icons', function () {
+    return gulp.src('src/assets/icons')
+        .pipe(gulp.dest('dist/assets'))
+        .pipe($.run('icon-font-generator src/assets/icons/*.svg -o dist/assets/icons'))
+});
+
+gulp.task('build', gulp.parallel('build:scripts', 'build:styles', 'build:views', 'build:assets', 'build:icons'));
 
 gulp.task('vendor:scripts', function () {
     return gulp.src(['node_modules/tiny-slider/dist/tiny-slider.js'])

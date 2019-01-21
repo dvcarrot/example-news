@@ -1,0 +1,21 @@
+///
+/// override global tiny-slider styles
+///
+
+.tns-nav {
+  text-align: center;
+
+  button {
+    @include dot-btn(16px);
+    background: #777;
+    opacity: 0.25;
+    transition: opacity 0.3s;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+
+    &:hover,
+    &.tns-nav-active {
+      opacity: 1;
+    }
+  }
+}

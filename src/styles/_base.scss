@@ -1,5 +1,6 @@
 ////
 /// this file contain base styles for tags
+/// 1. it cancel all focuses
 ////
 
 * {
@@ -7,5 +8,11 @@
 }
 
 body {
+  @include font-smoothing;
   font-family: $base-font-family;
+}
+
+// 1
+:focus {
+  outline: none;
 }

@@ -5,5 +5,7 @@
 
 .container {
   @include centered-block;
-  max-width: percentage(1440/1680); // 1
+  width: percentage(1440/1680); // 1
+  min-width: 320px;
+  max-width: 1440px;
 }

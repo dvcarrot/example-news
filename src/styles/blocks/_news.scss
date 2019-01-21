@@ -1,10 +1,12 @@
 ///
 /// news layout
+/// 1. tiny-slider modification
 ///
 
 $news-gutter: 50px;
 
 .news {
+  $self: '.news';
   overflow: hidden;
   margin-left: -$news-gutter/2;
   margin-right: -$news-gutter/2;
@@ -26,6 +28,24 @@ $news-gutter: 50px;
 
     @include breakpoint($large-desktop-bp) {
       width: percentage(1/4);
+    }
+
+    &--extra {
+      @include breakpoint($desktop-bp $large-desktop-bp) {
+        display: none;
+      }
+    }
+  }
+
+  // 1
+  &.tns-slider {
+    margin-left: 0;
+    margin-right: 0;
+
+    #{$self}__item {
+      padding-left: 0;
+      padding-right: 0;
+      width: auto;
     }
   }
 }

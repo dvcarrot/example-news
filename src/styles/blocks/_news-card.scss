@@ -24,10 +24,12 @@
   }
 
   &:hover {
-    transform: translate3d(0, -20px, 0);
+    @include breakpoint($desktop-bp) {
+      transform: translate3d(0, -20px, 0);
 
-    #{$self}__pic {
-      transform: scale(1.1) rotate(4deg);
+      #{$self}__pic {
+        transform: scale(1.1) rotate(4deg);
+      }
     }
   }
 }

@@ -1,0 +1,13 @@
+///
+/// common styles for rounded buttons
+/// @param @size - width and height of btn
+/// @access public
+///
+
+@mixin dot-btn($size: 16px) {
+  border-radius: 50%;
+  display: inline-block;
+  border: 0;
+  width: $size;
+  height: $size;
+}

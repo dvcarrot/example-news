@@ -6,28 +6,24 @@ gulp.task('build:scripts', function () {
     return gulp.src('src/scripts/**/*')
         .pipe($.concat('site.js'))
         .pipe(gulp.dest('dist/scripts'))
-        .pipe(server.reload({stream: true}))
 });
 
 gulp.task('build:styles', function () {
     return gulp.src(['src/styles/*', '!src/styles/_*'])
         .pipe($.sass())
         .pipe(gulp.dest('dist/styles'))
-        .pipe(server.reload({stream: true}))
 });
 
 gulp.task('build:views', function () {
     return gulp.src('src/views/pages/*')
         .pipe($.pug())
         .pipe(gulp.dest('dist/'))
-        .pipe(server.reload({stream: true}))
 });
 
 gulp.task('build:assets', function () {
     return gulp.src('src/assets/**/*')
         .pipe($.newer('dist/assets'))
         .pipe(gulp.dest('dist/assets'))
-        .pipe(server.reload({stream: true}))
 });
 
 gulp.task('build', gulp.parallel('build:scripts', 'build:styles', 'build:views', 'build:assets'));
@@ -70,6 +66,9 @@ gulp.task('watch', gulp.parallel('watch:scripts', 'watch:styles', 'watch:assets'
 
 gulp.task('serve', function () {
     server.init({port: 3001, server: "./dist", notify: false, open: true, ui: false});
+    return gulp.watch('dist/**/*').on('change', function (file) {
+        server.reload(file)
+    });
 });
 
 gulp.task('start', gulp.parallel(gulp.series('vendor', 'build', 'serve'), 'watch'));

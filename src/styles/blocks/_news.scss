@@ -10,8 +10,6 @@ $news-gutter: 50px;
   overflow: hidden;
   margin-left: -$news-gutter/2;
   margin-right: -$news-gutter/2;
-  padding-top: $news-gutter;
-  padding-bottom: $news-gutter;
 
   @include pseudo(before) {
     display: block;

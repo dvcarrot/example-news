@@ -1,0 +1,12 @@
+///
+/// block mixins for pseudo elements
+/// @param $pos - before|after
+/// @access public
+///
+
+@mixin pseudo($pos: before, $content: '') {
+  &:#{$pos} {
+    content: $content;
+    @content;
+  }
+}

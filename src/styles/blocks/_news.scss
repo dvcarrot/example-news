@@ -10,6 +10,17 @@ $news-gutter: 50px;
   overflow: hidden;
   margin-left: -$news-gutter/2;
   margin-right: -$news-gutter/2;
+  padding-top: $news-gutter;
+  padding-bottom: $news-gutter;
+
+  @include pseudo(before) {
+    display: block;
+    margin-left: $news-gutter/2;
+    margin-right: $news-gutter/2;
+    height: 3px;
+    background: $dark-color;
+    margin-bottom: 50px;
+  }
 
   &__item {
     display: inline-block;
@@ -17,6 +28,7 @@ $news-gutter: 50px;
     padding-left: $news-gutter/2;
     padding-right: $news-gutter/2;
     width: percentage(1/1);
+    margin-bottom: 2em;
 
     @include breakpoint($tablet-bp) {
       width: percentage(1/2);

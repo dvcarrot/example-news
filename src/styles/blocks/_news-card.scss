@@ -1,6 +1,7 @@
 ///
 /// news card
 /// 1. this values from design layout - height/width
+/// 2. pixel perfect
 ///
 
 .news-card {
@@ -23,7 +24,59 @@
     object-fit: cover;
   }
 
+  #{$self}__icon {
+    transition: fill 0.3s;
+    fill: #717171;
+  }
+
+  &__type {
+    color: #b2544f;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: $extra-font-family;
+    font-weight: 700;
+    margin-top: 17px;
+  }
+
+  &__name {
+    transition: color 0.3s;
+    color: #231f20;
+    font-size: 19px;
+    letter-spacing: -1.1px;
+    line-height: 22px;
+    font-family: $heading-font-family;
+    font-weight: 700;
+    margin-top: 8px;
+    max-width: 80%;
+  }
+
+  &__text {
+    color: #616161;
+    font-size: 15px;
+    letter-spacing: -0.38px;
+    line-height: 22px;
+    font-family: $base-font-family;
+    margin-top: 11px;
+    margin-right: -1px;
+  }
+
+  &__date {
+    color: #9e9e9e;
+    font-size: 12px;
+    line-height: 22px;
+    font-family: $base-font-family;
+    margin-top: 10px;
+  }
+
   &:hover {
+    #{$self}__icon {
+      fill: #676666;
+    }
+
+    #{$self}__name {
+      color: #676666;
+    }
+
     @include breakpoint($desktop-bp) {
       transform: translate3d(0, -20px, 0);
 

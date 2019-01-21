@@ -39,7 +39,11 @@ gulp.task('vendor:scripts', function () {
 });
 
 gulp.task('vendor:styles', function () {
-    return gulp.src(['node_modules/tiny-slider/dist/tiny-slider.css'])
+    var vendorCss = [
+        'node_modules/normalize.css/normalize.css',
+        'node_modules/tiny-slider/dist/tiny-slider.css'
+    ];
+    return gulp.src(vendorCss)
         .pipe($.concat('vendor.css'))
         .pipe(gulp.dest('dist/styles'))
 });

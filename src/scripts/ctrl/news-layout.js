@@ -1,6 +1,6 @@
 // news controller
 
-function news() {
+function newsLayout() {
 
     // globals
     var TABLET_BREAKPOINT = Constants.TABLET_BREAKPOINT;

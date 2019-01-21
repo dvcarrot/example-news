@@ -1,0 +1,9 @@
+////
+/// this file contain common elements
+/// 1. this values from design layout
+////
+
+.container {
+  @include centered-block;
+  max-width: percentage(1440/1680); // 1
+}

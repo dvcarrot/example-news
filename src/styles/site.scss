@@ -1,4 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+////
+/// this file contain imports, it`s main file
+////
+
+@import 'vars';
+@import 'mixins';
+@import 'base';
+@import 'common';
+@import 'blocks';

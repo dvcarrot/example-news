@@ -1,0 +1,31 @@
+///
+/// news layout
+///
+
+$news-gutter: 50px;
+
+.news {
+  overflow: hidden;
+  margin-left: -$news-gutter/2;
+  margin-right: -$news-gutter/2;
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: $news-gutter/2;
+    padding-right: $news-gutter/2;
+    width: percentage(1/1);
+
+    @include breakpoint($tablet-bp) {
+      width: percentage(1/2);
+    }
+
+    @include breakpoint($desktop-bp) {
+      width: percentage(1/3);
+    }
+
+    @include breakpoint($large-desktop-bp) {
+      width: percentage(1/4);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+////
+/// this file contain scss variables
+////
+
+// fonts
+$font-family-philosopher: 'Philosopher', sans-serif;
+$font-family-noto-serif: 'Noto Serif', serif;
+$font-family-noto-sans: 'Noto Sans', sans-serif;
+
+$base-font-family: $font-family-noto-sans !default;
+$heading-font-family: $font-family-noto-serif !default;
+$extra-font-family: $font-family-philosopher !default;
+
+// breakpoints
+$tablet-bp: 768px;
+$desktop-bp: 1024px;
+$large-desktop-bp: 1200px;

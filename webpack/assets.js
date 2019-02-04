@@ -2,10 +2,11 @@
 
 // dependency
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 
 // module rule
-const assets = {
-    test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+const images = {
+    test: /\.(png|gif|jpg|jpeg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
     use: [{
         loader: 'file-loader',
         options: {
@@ -22,11 +23,25 @@ const copyHtmlPlugins = [
         to: './upload'
     }])
 ];
+const svgPlugins = [
+    new SVGSpritemapPlugin('./src/assets/icons/*.svg', {
+        sprite: {
+            prefix: false
+        },
+        output: {
+            filename: 'assets/icons.svg'
+        }
+    })
+];
 
 // config
 module.exports = {
     module: {
-        rules: [assets]
+        rules: [
+            images
+        ]
     },
-    plugins: copyHtmlPlugins
+    plugins: []
+        .concat(copyHtmlPlugins)
+        .concat(svgPlugins)
 };

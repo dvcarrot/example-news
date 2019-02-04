@@ -3,4 +3,6 @@
 mixin icon(name)
     - var className = attributes.class ? attributes.class : null
     - className += ' icon-' + name
-    i(class=className)
+    - var href = 'assets/icons.svg#' + name;
+    svg(class=className)
+        use(xlink:href=href)

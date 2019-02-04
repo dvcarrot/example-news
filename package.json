@@ -17,6 +17,7 @@
     "pug-html-loader": "^1.1.5",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "svg-spritemap-webpack-plugin": "^3.2.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",

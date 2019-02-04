@@ -17,7 +17,7 @@ const images = {
 };
 
 // plugins
-const copyHtmlPlugins = [
+const copyPlugins = [
     new CopyWebpackPlugin([{
         from: './src/upload',
         to: './upload'
@@ -42,6 +42,6 @@ module.exports = {
         ]
     },
     plugins: []
-        .concat(copyHtmlPlugins)
+        .concat(copyPlugins)
         .concat(svgPlugins)
 };

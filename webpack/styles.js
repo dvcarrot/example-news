@@ -14,7 +14,7 @@ const scss = {
 };
 
 // plugins
-const extractHtmlPlugins = [
+const extractPlugins = [
     new MiniCssExtractPlugin({
         filename: 'styles/[name].css',
         chunkFilename: 'styles/[id].css'
@@ -26,5 +26,5 @@ module.exports = {
     module: {
         rules: [scss]
     },
-    plugins: extractHtmlPlugins
+    plugins: extractPlugins
 };

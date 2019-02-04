@@ -1,6 +1,7 @@
 // webpack.config.js
 
 // dependency
+const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -31,6 +32,29 @@ const assets = {
     }],
 };
 
+// copy
+const copyHtmlPlugins = [
+    new CopyWebpackPlugin([{
+        from: './src/upload',
+        to: './upload'
+    }])
+];
+
+// extract
+const extractHtmlPlugins = [
+    new MiniCssExtractPlugin({
+        filename: 'styles/[name].css',
+        chunkFilename: 'styles/[id].css'
+    })
+];
+
+// pages
+const files = fs.readdirSync('./src/views/pages');
+const entryHtmlPlugins = files.map((file) => new HtmlWebpackPlugin({
+    filename: file.replace('.pug', '.html'),
+    template: 'src/views/pages/' + file
+}));
+
 // config
 const config = {
     entry: './src/app.js',
@@ -39,22 +63,16 @@ const config = {
         filename: 'scripts/[name].bundle.js'
     },
     module: {
-        rules: [pug, scss, assets]
+        rules: [
+            pug,
+            scss,
+            assets
+        ]
     },
-    plugins: [
-        new CopyWebpackPlugin([{
-            from: './src/upload',
-            to: './upload'
-        }]),
-        new MiniCssExtractPlugin({
-            filename: 'styles/[name].css',
-            chunkFilename: 'styles/[id].css'
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'src/views/pages/index.pug'
-        })
-    ],
+    plugins: []
+        .concat(copyHtmlPlugins)
+        .concat(extractHtmlPlugins)
+        .concat(entryHtmlPlugins),
     resolve: {
         alias: {
             'assets': path.resolve(__dirname, 'src/assets')

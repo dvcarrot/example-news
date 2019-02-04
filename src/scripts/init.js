@@ -1,17 +1,24 @@
-// auto binding
-(function () {
+class Page {
 
-    function init(elem) {
+    constructor() {
+        this.ctrls = {}
+    }
+
+    init(elem) {
         var bindName = elem.getAttribute('data-bind');
-        var bindCtrl = window[bindName] || null;
+        var bindCtrl = this.ctrls[bindName] || null;
         if (bindCtrl !== null)
             bindCtrl.apply(elem)
     }
 
-    function install(context) {
-        context.querySelectorAll('[data-bind]').forEach(init);
+    install(context) {
+        context.querySelectorAll('[data-bind]').forEach(this.init, this);
     }
 
-    install(document);
+    addCtrl(name, ctrl) {
+        this.ctrls[name] = ctrl
+    }
 
-})();
+}
+
+export default Page;
